@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Code</title>
+</head>
+<body>
+<script>
+  const hash = location.hash.slice(1);
+  if (hash) {
+    const decoded = decodeURIComponent(escape(atob(hash))); // decode Base64
+    document.write(decoded);
+  } else {
+    document.write("<h2>No code provided!</h2>");
+  }
+</script>
+</body>
+</html>
