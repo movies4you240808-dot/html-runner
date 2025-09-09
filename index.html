@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Runner</title>
+</head>
+<body>
+  <h1>HTML Runner</h1>
+  <textarea id="code" rows="10" cols="50"><h1>Hello World!</h1></textarea><br>
+  <button onclick="makeLink()">Get Link</button>
+
+  <p id="link"></p>
+
+  <script>
+    function makeLink() {
+      const code = document.getElementById("code").value;
+      const encoded = btoa(unescape(encodeURIComponent(code))); // Base64 encode
+      const url = location.origin + "/view.html#" + encoded;
+      document.getElementById("link").innerHTML =
+        `<a href="${url}" target="_blank">${url}</a>`;
+    }
+  </script>
+</body>
+</html>
